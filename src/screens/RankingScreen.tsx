@@ -48,7 +48,7 @@ export default function RankingScreen() {
     // Define colors for the top 3 players
     let rankColor = '#6b7280'; // Default color
     let backgroundColor = 'transparent';
-    
+
     if (index === 0) {
       rankColor = '#fbbf24'; // Gold
       backgroundColor = '#fffbeb';
@@ -70,7 +70,7 @@ export default function RankingScreen() {
 
         <View style={styles.userInfo}>
           <Text style={styles.username}>{item.username}</Text>
-          <Text style={styles.winCount}>{item.wins} victorias</Text>
+          <Text style={styles.winCount}>{item.victories} victorias</Text>
         </View>
       </View>
     );
@@ -80,7 +80,7 @@ export default function RankingScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Top 10 Jugadores</Text>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.logoutButton}
           onPress={logout}
         >
@@ -116,7 +116,7 @@ export default function RankingScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
+  container: {
     flex: 1,
     backgroundColor: '#f9fafb'
   },
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e5e7eb',
     backgroundColor: '#fff'
   },
-  title: { 
-    fontSize: 18, 
+  title: {
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#1f2937'
   },

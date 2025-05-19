@@ -31,19 +31,20 @@ export default function StatsScreen() {
         setLoading(false);
       }
     };
-    
+
     fetchStats();
   }, []);
 
-  const winRate = stats?.totalGames > 0 
-    ? Math.round((stats.totalWins / stats.totalGames) * 100) 
+  const winRate = stats?.totalGames > 0
+    ? Math.round((stats.totalVictories / stats.totalGames) * 100)
     : 0;
+
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Estadísticas</Text>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.logoutButton}
           onPress={logout}
         >
@@ -51,7 +52,7 @@ export default function StatsScreen() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView 
+      <ScrollView
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
@@ -61,28 +62,28 @@ export default function StatsScreen() {
           <>
             <Text style={styles.welcome}>Hola, Jugador</Text>
             <Text style={styles.subtitle}>Tu rendimiento</Text>
-            
+
             <View style={styles.statsContainer}>
               <View style={styles.statCard}>
                 <Text style={styles.statValue}>{stats.totalGames}</Text>
                 <Text style={styles.statLabel}>Partidas</Text>
               </View>
-              
+
               <View style={styles.statCard}>
-                <Text style={styles.statValue}>{stats.totalWins}</Text>
+                <Text style={styles.statValue}>{stats.totalVictories}</Text>
                 <Text style={styles.statLabel}>Victorias</Text>
               </View>
-              
+
               <View style={styles.statCard}>
                 <Text style={styles.statValue}>{winRate}%</Text>
                 <Text style={styles.statLabel}>% Victoria</Text>
               </View>
             </View>
-            
+
             {/* Podemos añadir más estadísticas aquí si están disponibles */}
             <View style={styles.additionalStats}>
               <Text style={styles.subtitle}>Información adicional</Text>
-              
+
               <View style={styles.infoCard}>
                 <View style={styles.infoItem}>
                   <Text style={styles.infoLabel}>Racha actual:</Text>
@@ -90,14 +91,14 @@ export default function StatsScreen() {
                     {stats.currentStreak || 0} victorias
                   </Text>
                 </View>
-                
+
                 <View style={styles.infoItem}>
                   <Text style={styles.infoLabel}>Mejor racha:</Text>
                   <Text style={styles.infoValue}>
                     {stats.bestStreak || 0} victorias
                   </Text>
                 </View>
-                
+
                 <View style={styles.infoItem}>
                   <Text style={styles.infoLabel}>Derrotas:</Text>
                   <Text style={styles.infoValue}>
@@ -118,8 +119,8 @@ export default function StatsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
+  container: {
+    flex: 1,
     backgroundColor: '#f9fafb'
   },
   header: {
@@ -131,8 +132,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e5e7eb',
     backgroundColor: '#fff'
   },
-  title: { 
-    fontSize: 18, 
+  title: {
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#1f2937'
   },
